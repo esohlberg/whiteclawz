@@ -6,11 +6,9 @@ def adjustchar(currchar, keychar):
         return ' '
     currnum = ord(currchar) - 96
     keynum = ord(keychar) - 96
-    newnum = currnum + keynum
-    if newnum > 26:
-        newnum = (newnum % 26)
-    if newnum == 0:
-        newnum = 26
+    newnum = currnum - keynum
+    if newnum <= 0:
+        newnum += 26
     newnum = newnum + 96
     return chr(newnum)
 
@@ -27,10 +25,13 @@ if __name__ == '__main__':
     while len(x) > 1:
         currchar = x[0]
         x = x[1:]
-        answer += adjustchar(currchar, key[keyspot])
-        keyspot += 1
-        if keyspot == len(key):
-            keyspot = 0
+        if currchar.isalnum():
+            answer += adjustchar(currchar, key[keyspot])
+            keyspot += 1
+            if keyspot == len(key):
+                keyspot = 0
+        else:
+            answer += currchar
     print(answer)
 
 
