@@ -24,5 +24,7 @@ if __name__ == '__main__':
                 highest = value
                 highestkey = key
         if (highestkey.isalnum()):
-            print(highestkey + ': ' + str(highest))
+            percent = highest/len(x) * 100
+            print(highestkey + ': ' + str(highest) + " " + "{0:.2f}".format(percent) + "%")
+
         allchars.pop(highestkey, None)        
