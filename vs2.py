@@ -9,10 +9,10 @@ def adjustchar(currchar, keychar):
     newnum = currnum - keynum
     if newnum <= 0:
         newnum += 27
-    newnum = newnum + 96
     if newnum == 27:
         return ' '
     else:
+        newnum = newnum + 96
         return chr(newnum)
 
 if __name__ == '__main__':
